@@ -16,6 +16,6 @@ cd ./export
 git init
 git add -A
 git commit -m"deploy"
-git push dokku@dino.xdsoft.ru:tars-bootstrap-static-app master --force
+
 rm -rf ./git
 cd ../

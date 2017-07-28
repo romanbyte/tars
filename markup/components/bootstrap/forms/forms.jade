@@ -1,0 +1,87 @@
+include ../icons/icons
+include ./label/label
+include ./input/input
+include ./select/select
+include ./textarea/textarea
+include ./checkbox/checkbox
+include ./radio/radio
+include ./fileinput/fileinput
+include ./demo-forms
+
+
+//- 'type' тип поля формы (text, password и тп)
+//- 'id' айди
+//- 'placeholder' Плейсхолдер поля формы
+//- 'inputattrs' дополнительные атрибуты поля input, формат записи {'attribute-name':'attribut-value'}
+//- 'labelattrs'
+//- 'selectattrs'
+//- 'textareaattrs'
+//- 'textareaattrs'
+//- 'label'
+
+
+//- Submit button
+mixin submit(id, text, name)
+    .form-group
+        button.btn(type="submit",name="#{name}",id="#{id}")&attributes(attributes)
+            = text
+
+
+
+//- Icon button
+mixin icon-btn(icon)
+    button.btn.btn-default(type="button",aria-label="#{icon}")
+        +icon(icon)
+
+//- Badges
+mixin badge(text)
+    span.badge= text
+
+
+
+
+//- form renders
+mixin inputs(obj)
+    each item in obj
+        +input(item)
+            if item.addtext
+                each item2 in item.addtext
+                    div(class=item2.class)
+                        =item2.text
+mixin selects(obj)
+    each item in obj
+        +select(item)
+
+mixin input-rows(obj)
+    each item in obj
+        +input-row(item)
+
+mixin textareas(obj)
+    each item in obj
+        +textarea(item)
+
+mixin checkboxes(obj)
+    each item in obj
+        +checkbox(item)
+
+mixin checkboxes-inline(obj)
+    each item in obj
+        +checkbox-inline(item)
+
+mixin checkboxes-custom(obj)
+    each item in obj
+        +checkbox-custom(item)
+
+mixin radios(obj)
+    each item in obj
+        +radio(item)
+
+mixin radios-inline(obj)
+    each item in obj
+        +radio-inline(item)
+
+mixin radios-custom(obj)
+    each item in obj
+        +radio-custom(item)
+
+

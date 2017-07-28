@@ -1,0 +1,126 @@
+//- Elements //
+//- link element
+//- @link -- url
+//- @name -- link name
+//- @ico -- icon for link class name
+//- @classes -- link class name array
+mixin link(link, name, ico, addInfo, classes)
+    - var linkUrl = (link) ? link : "#"
+    if !ico
+        a(href=linkUrl class=classes)&attributes(attributes)= name
+    else
+        a(href=linkUrl class=classes)
+            i.icon.link-icon
+                != jadeHelpers.Icon.call(locals, {iconName: ico, className: 'svg-icon'})
+                if addInfo
+                    span.link-add-info
+                        |#{addInfo}
+            span.link-name #{name}
+
+
+mixin url(id)
+
+    each item, index in sitemap
+        if item.id == id
+            //-|#{item.link}
+            //-href= item.link
+            a(href="#{item.link}")
+                if block
+                    block
+
+
+mixin link-with-icofont(link, name, ico, classes)
+    - var linkUrl = (link) ? link : "#"
+    if !ico
+        a(href=linkUrl class=classes)&attributes(attributes)= name
+    else
+        a(href=linkUrl class=classes)
+            i(class="#{ico}")
+            | &nbsp;
+            span #{name}
+
+
+
+
+mixin navigation-itrem-calc(link, name, className)
+    li(class="#{className}")
+        +link(link, name)
+
+mixin siteMaplink(link, name, psd, task, desc)
+    - var linkName = (link) ? link : "Нет страницы"
+    - var linkUrl = (link) ? link : "#"
+
+    dl
+        dt #{name}
+        dd
+            | Страница:&nbsp;
+            a(href="#{linkUrl}") #{linkUrl}
+            if task
+                |<br> Задача:&nbsp;
+                a(href="#{task}" target="_blank") #{task}
+            if desc
+                br
+                i #{desc}
+
+
+
+//- Menus //
+
+mixin siteMapMenu(obj, subClass)
+    each item,index in obj
+        li(class="#{subClass}")
+            +siteMaplink(item.link, item.name, item.psd, item.task, item.desc)
+            if item.items
+                ul
+                    +siteMapMenu(item.items, 'sublist-item')
+
+
+
+mixin linkMenu(obj, target, classes)
+    each item,index in obj
+        if item.id == target
+            +link(item.link, item.name, item.ico, item.addInfo, classes)
+
+
+mixin linkPage(obj, target, name, ico, classes)
+    each item,index in obj
+        if item.id == target
+            +link(item.link, name, ico, false, classes)
+
+
+mixin sitemap()
+    ul
+        +siteMapMenu(sitemap)
+        li
+            a(href="./build.zip")
+                |Скачать в архиве
+
+
+mixin breadcrumbs(obj)
+    ul.uk-breadcrumb
+        each item, index in obj
+            +lineMenu(navigationTop, item)
+            //TODO detect last element
+
+
+
+//- mixin simpleLink
+//- Display link <a> tag
+//- @obj page ID array, trasnformed to @link and @name by linkMenu mixin
+//- @ico icon class, place into <a>
+//- @classes classes array
+//-
+//- Markup:
+//- <a href="@link" class="@classes">@name</a>
+//- <a href="@link" class="@classes">
+//- <i class="@ico"<//i>
+//- <span>@name</span>
+//- </a>
+mixin simpleLink(obj, classes)
+    each item, index in obj
+        +linkMenu(sitemap, item, classes)
+
+
+mixin inPageLink(obj, name, ico, classes)
+    each item, index in obj
+        +linkPage(sitemap, item, name, ico, classes)

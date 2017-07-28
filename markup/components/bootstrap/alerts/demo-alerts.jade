@@ -1,0 +1,28 @@
+
+//- Demonstration
+mixin demo-alerts
+    h4 Simple Alerts
+    +alert-info("This is an info alert")
+    +alert-info('<strong>Well done!</strong> You successfully read this important alert <a href="#" class="alert-link">this important alert message</a>.')
+    +alert-danger('This is a danger alert <a href="#" class="alert-link">with link</a>')
+    +alert-success("This is a success alert")
+    +alert-warning("This is a warning alert")
+
+    h4 Alerts with icons
+    +alert-i-info("This is an info alert")
+    +alert-i-info("This is an info alert with custom icon","heart")
+    +alert-i-danger('This is a danger alert <a href="#" class="alert-link">with link</a>')
+    +alert-i-success("This is a success alert")
+    +alert-i-warning("This is a warning alert")
+
+    h4 Dismissible Alerts
+    +alert-x-info("This is an info alert")
+    +alert-x-danger('This is a danger alert <a href="#" class="alert-link">with link</a>')
+    +alert-x-success("This is a success alert")
+    +alert-x-warning("This is a warning alert")
+
+    h4 Dismissible Alerts with icons
+    +alert-ix-info("This is an info alert")
+    +alert-ix-danger('This is a danger alert <a href="#" class="alert-link">with link</a>')
+    +alert-ix-success("This is a success alert")
+    +alert-ix-warning("This is a warning alert")

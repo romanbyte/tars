@@ -1,0 +1,41 @@
+//- Simple form input control without a form-group
+mixin input-simple(obj)
+    - var inputattrs = (typeof obj.inputattrs === 'undefined') ? {} : obj.inputattrs
+    input.form-control(
+    type="#{obj.type}"
+    id="#{obj.id}"
+    placeholder="#{obj.placeholder}"
+    name="name-#{obj.id}"
+    )&attributes(inputattrs)
+
+
+//- Input control with form-group wrapper
+mixin input(obj)
+    - var groupattrs = (typeof obj.groupattrs === 'undefined') ? {} : obj.groupattrs
+    .form-group&attributes(groupattrs)
+        +lable-simple(obj)
+        +input-simple(obj)
+        block
+
+mixin input-row(obj)
+    - var groupattrs = (typeof obj.groupattrs === 'undefined') ? {} : obj.groupattrs
+    .form-group.row&attributes(groupattrs)
+        +lable-simple-row(obj)
+        div&attributes(obj.colattrs)
+            +input-simple(obj)
+            block
+
+
+//- Input group - both prepend and append options available, and block is passed
+mixin input-group(obj)
+    .form-group
+        label.sr-only(for="#{obj.id}")
+            = obj.label
+        .input-group
+            unless !obj.prepend
+                .input-group-addon
+                    = obj.prepend
+                +input-simple(obj)
+                unless !obj.append
+                    .input-group-addon
+                        = obj.append

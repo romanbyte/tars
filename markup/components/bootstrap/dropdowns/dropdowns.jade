@@ -1,0 +1,47 @@
+//- Dropdown old
+
+include ./demo-dropdown
+
+mixin dropdown-old(caption,items)
+    .dropdown
+        button.btn.btn-default.dropdown-toggle(type="button",data-toggle="dropdown")
+            = caption
+            | &nbsp;
+            span.caret
+        ul.dropdown-menu(role="menu",aria-labelledby="dropdownMenu1")
+            each item, index in items
+                li(role="presentation")
+                    a(role="menuitem",tabindex="-1",href="#{item.href}")= item.name
+
+//- Dropup
+mixin dropup(caption,items)
+    .dropup
+        button.btn.btn-default.dropdown-toggle(type="button",data-toggle="dropdown")
+            = caption
+            | &nbsp;
+            span.caret
+        ul.dropdown-menu(role="menu",aria-labelledby="dropupMenu1")
+            each item, index in items
+                li(role="presentation")
+                    a(role="menuitem",tabindex="-1",href="#{item.href}")= item.name
+
+mixin dropdown-menu(id, items)
+    .dropdown-menu(aria-labelledby="#{id}")
+        each item, index in items
+            a.dropdown-item(href="#{item.href}")= item.name
+
+//- Dropdown
+mixin dropdown(caption,items, id, className)
+    - var className = (typeof className === 'undefined') ? "btn-default" : className
+    button.btn.dropdown-toggle(class="#{className}" id="#{id}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")&attributes(attributes)
+        |#{caption}
+    +dropdown-menu(id, items)
+
+mixin dropdown-split(caption,items, id, className)
+    - var className = (typeof className === 'undefined') ? "btn-default" : className
+    button.btn(class="#{className}")
+        |#{caption}
+    button.btn.dropdown-toggle.dropdown-toggle-split(class="#{className}" id="#{id}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")&attributes(attributes)
+    +dropdown-menu(id, items)
+
+

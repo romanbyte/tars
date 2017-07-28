@@ -1,0 +1,7 @@
+mixin popver-btn(btnText, popoverTitle, popoverText)
+    +btn(btnText)(data-toggle="popover" title=popoverTitle data-content=popoverText)
+        |#{btnText}
+
+mixin demo-popover
+    h3 Popovers
+    +popver-btn("Click to toggle popover", "Popover title", "And here's some amazing content. It's very engaging. Right?")

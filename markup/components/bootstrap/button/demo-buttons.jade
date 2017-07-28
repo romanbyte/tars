@@ -1,0 +1,124 @@
+include ../dropdowns/dropdowns
+
+mixin demo-btns
+    h4.mt-1= 'Simple buttons <a>'
+    +a-btn-primary()
+        |Primary
+    +a-btn-secondary
+        |Secondary
+    +a-btn-success
+        |Sussess
+    +a-btn-info
+        |Info
+    +a-btn-warning
+        |Warning
+    +a-btn-danger
+        |Danger
+    +a-btn-link
+        |like link
+
+    h4.mt-2= 'Simple buttons <button>'
+    +btn-primary()
+        |Primary
+    +btn-secondary
+        |Secondary
+    +btn-success
+        |Sussess
+    +btn-info
+        |Info
+    +btn-warning
+        |Warning
+    +btn-danger
+        |Danger
+    +btn-link
+        |like link
+
+    h4.mt-2= 'Outlines buttons <button>'
+    +btn-primary(true)
+        |Primary
+    +btn-secondary(true)
+        |Secondary
+    +btn-success(true)
+        |Sussess
+    +btn-info(true)
+        |Info
+    +btn-warning(true)
+        |Warning
+    +btn-danger(true)
+        |Danger
+    +btn-link(true)
+        |like link
+
+    h4.mt-2= 'Active state'
+    +btn-primary()(class="active" aria-pressed="true")
+        |Primary pressed
+    +btn-secondary()(class="btn-lm active", aria-pressed="true")
+        |Secondary pressed
+
+    h4.mt-2= 'Disabled state <a> and <button>'
+    +btn-primary()(class="disabled" disabled)
+        |Primary pressed
+    +btn-secondary()(class="btn-lm disabled", disabled)
+        |Secondary pressed
+    +a-btn-primary()(class="disabled", aria-disabled="true")
+        |Primary pressed
+    +a-btn-secondary()(class="btn-lm disabled", aria-disabled="true")
+        |Secondary pressed
+
+mixin demo-btn-group-block(ariaLabel)
+    .btn-group(role="group" aria-label="#{ariaLabel}")&attributes(attributes)
+        +btn-primary(true)
+            | Left
+        +btn-primary(true)
+            | middle
+        +btn-primary(true)
+            | right
+
+mixin demo-btn-group
+    h4.mt-1= 'Basic example'
+    +demo-btn-group-block("Basic example")
+
+
+    h4.mt-1= 'Button toolbar'
+    .btn-toolbar(role="toolbar" aria-label="Toolbar with button groups")
+        +demo-btn-group-block("Button toolbar")
+        +demo-btn-group-block("Button toolbar")
+
+        .btn-group(role="group" aria-label="Button toolbar")
+            +btn-primary(true)
+                | one
+
+    h4.mt-1= 'Sizing'
+    +demo-btn-group-block("Button group")(class="btn-group-lg")
+    +demo-btn-group-block("Button group")
+    +demo-btn-group-block("Button group")(class="btn-group-sm")
+
+    h4.mt-1= 'Nesting'
+    .btn-group(role="group" aria-label="nesting")
+        +btn-primary(true)
+            | 1
+        +btn-primary(true)
+            | 2
+        .btn-group
+           +dropdown("dropdown", demoLinks, "dropDown1", "btn-primary")
+
+    h4.mt-1= 'Vertical variation'
+    .btn-group-vertical
+        .btn-group(role="group" aria-label="nesting")
+        +btn-primary(true)
+            | 1
+        +btn-primary(true)
+            | 2
+        .btn-group
+            +dropdown("dropdown", demoLinks, "dropDown1", "btn-primary")
+
+        .btn-group(role="group" aria-label="nesting")
+        +btn-primary(true)
+            | 1
+        +btn-primary(true)
+            | 2
+        .btn-group
+            +dropdown("dropdown", demoLinks, "dropDown1", "btn-primary")
+
+
+

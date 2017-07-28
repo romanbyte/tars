@@ -1,0 +1,158 @@
+extends _layout
+include ../components/bootstrap/bootstrap-components
+
+mixin cols12()
+    .row
+        - var n = 1;
+        while n < 13
+            .col-sm-1= n++
+
+mixin grids
+    .container.mt-3
+        .row
+            .col-sm-12
+                h2 Колонки
+                hr
+
+    .container.mt-1
+        .row
+            .col-sm-12
+                h3 Сетка фиксированная
+    .container
+        +cols12()
+
+    .container.mt-1
+        .row
+            .col-sm-12
+                h3 Сетка на всю ширину
+    .container-fluid
+        +cols12()
+
+
+mixin this-page-nav
+    +nav("",componentsList)(id="navbarSpy" role="tablist")
+
+
+mixin alerts
+    .container-fluid.mt-1
+        .row
+            .col-sm-12
+                h3(id="alerts") Alerts
+        .row
+            .col-sm-12
+                +demo-alerts()
+
+mixin collapses
+    .container-fluid.mt-1
+        .row
+            .col-sm-12
+                h3(id="collapse") Collapse
+        .row
+            .col-sm-12
+                +demo-collapse
+
+mixin paginations
+    .container-fluid.mt-1
+        .row
+            .col-sm-12
+                h3(id="paginations") Paginations
+        .row
+            .col-sm-12
+                +demo-pagination
+
+mixin breadcrumbs
+    .container-fluid.mt-1
+        .row
+            .col-sm-12
+                h3(id="breadcrumbs")  Breadcrumb
+        .row
+            .col-sm-12
+                +demo-breadcrumb
+
+mixin buttons
+    .container-fluid.mt-1
+        .row
+            .col-sm-12
+                h3(id="buttons") Buttons
+        .row
+            .col-sm-12
+                +demo-btns
+
+mixin buttons-group
+    .container-fluid.mt-3
+        .row
+            .col-sm-12
+                h3(id="buttonsGroup") Buttons group
+        .row
+            .col-sm-12
+                +demo-btn-group
+
+mixin cards
+    .container-fluid.mt-3
+        .row
+            .col-sm-12
+                h3(id="cards") Cards
+        .row
+            .col-sm-12
+                +demo-cards
+
+mixin carousels
+    .container-fluid.mt-3
+        .row
+            .col-sm-12
+                h3(id="carousel") Carousel
+        .row
+            .col-sm-12
+                +demo-carousel
+
+mixin dropdowns
+    .container-fluid.mt-3
+        .row
+            .col-sm-12
+                h3(id="dropdowns") Dropdown
+        .row
+            .col-sm-12
+                +demo-dropdown
+
+mixin forms
+    .container-fluid.mt-3
+        .row
+            .col-sm-12
+                h3(id="forms") Forms
+        .row
+            .col-sm-12
+                +demo-forms
+
+
+
+
+
+block content
+    .container.mt-3
+        .row
+            .col-sm-12
+                h1 Бутстрап
+    +grids
+
+    .container-fluid.mt-3
+        .row
+            .col-sm-12
+                h2.target-tether Компоненты бутстрапа
+                hr
+        .row
+            .col-sm-2
+                .left-nav-area
+                    +this-page-nav
+            .col-sm-10
+                .content-area(data-spy="scroll" data-target="#navbarSpy" style="margin-bottom:500px")
+                    +alerts
+                    +breadcrumbs
+                    +paginations
+                    +buttons
+                    +buttons-group
+                    +cards
+                    +carousels
+                    +collapses
+                    +dropdowns
+                    +forms
+

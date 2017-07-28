@@ -1,0 +1,14 @@
+mixin lable-simple(obj)
+    - var labelattrs = (typeof obj.labelattrs === 'undefined') ? {} : obj.labelattrs
+    label(for="#{obj.id}")&attributes(labelattrs)
+        if obj.label
+            | #{obj.label}
+        block
+
+
+mixin lable-simple-row(obj)
+    - var labelattrs = (typeof obj.labelattrs === 'undefined') ? {} : obj.labelattrs
+    label.col-form-label(for="#{obj.id}")&attributes(labelattrs)
+        if obj.label
+            | #{obj.label}
+        block

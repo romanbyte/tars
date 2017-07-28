@@ -1,0 +1,18 @@
+include ../components/head/head
+doctype html
+html(class="no-js", lang="ru" ng-app="app")
+
+    block vars
+
+    head
+        +head(head.defaults)
+    body
+
+        .all(class="#{pageClass}")
+            block content
+
+
+
+        script svg4everybody();
+        script(src='%=static=%js/separate-js/jquery-3.1.0.min.js')
+        script(src='%=static=%js/main%=hash=%%=min=%.js')

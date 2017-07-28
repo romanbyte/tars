@@ -1,0 +1,37 @@
+//- Pagination mixin
+
+mixin pagination-item(text, active)
+    li(class=["page-item", active])
+        a.page-link(href="#")&attributes(attributes) #{text}
+            block
+
+mixin pagination-prev(ico)
+    +pagination-item()(aria-label="Previous")
+        span(aria-hidden="true")
+            unless ico
+                |&laquo;
+            else
+                ico
+        span.sr-only Previous
+
+mixin pagination-next(ico)
+    +pagination-item()(aria-label="Next")
+        span(aria-hidden="true")
+            unless ico
+                |&raquo;
+            else
+                ico
+        span.sr-only Next
+
+mixin pagination(count, icoPrev, icoNext)
+    nav(aria-label="Page navigation")
+        ul.pagination
+            +pagination-prev(icoPrev)
+            +pagination-item('1', 'active')
+            - var n = 1;
+                while n < count
+                    +pagination-item(n++)
+            +pagination-next(icoNext)
+
+mixin demo-pagination
+    +pagination("10")

@@ -1,0 +1,43 @@
+mixin simple-radio(obj)
+    - var radioattrs = (typeof obj.radioattrs === 'undefined') ? {} : obj.radioattrs
+    input.form-check-input(
+        type='radio'
+        name="#{obj.name}"
+        id="#{obj.id}"
+        )&attributes(obj.radioattrs)
+    |&nbsp;#{obj.label}
+
+//- Radio box
+mixin radio(obj)
+    - var groupattr = (typeof obj.groupattr === 'undefined') ? {} : obj.groupattr
+    .form-check&attributes(groupattr)
+        +lable-simple({
+            'id': obj.id,
+            'label': false,
+            'labelattrs': {
+                'class': 'form-check-label'
+            }
+        })
+            +simple-radio(obj)
+
+
+//- Radio inline
+mixin radio-inline(obj)
+    - var groupattr = (typeof obj.groupattr === 'undefined') ? {} : obj.groupattr
+    +lable-simple({
+        'id': obj.id,
+        'label': false,
+        'labelattrs': {
+            'class': 'form-check-inline'
+        }
+    })
+        +simple-radio(obj)
+
+
+//- Custom checkbox
+mixin radio-custom(obj)
+    label.custom-control.custom-radio
+        input.custom-control-input(type="radio" name="#{obj.name}" id="#{obj.id}")
+        span.custom-control-indicator
+        span.custom-control-description
+            = obj.label

@@ -1,0 +1,23 @@
+{
+  "name": "tars-bootstrap-bundled",
+  "version": "1.0.0",
+  "description": "Tars with bootstrap 4 components",
+  "main": "gulpfile.js",
+  "directories": {},
+  "dependencies": {
+    "gulp-iconfont": "^5.0.0",
+    "gulp-iconfont-css": "^2.0.0"
+  },
+  "devDependencies": {
+    "bootstrap": "^4.0.0-alpha.5",
+    "gulp": "3.9.1",
+    "gulp-filter": "^4.0.0",
+    "gulp-if": "^2.0.1",
+    "yellfy-pug-inheritance": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

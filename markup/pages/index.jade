@@ -1,0 +1,16 @@
+include ../components/head/head
+include ../components/site-map/site-map
+
+doctype html
+html(class="no-js", lang="ru")
+
+
+
+    head
++head(head.defaults)
+body
+    .toc(style="padding:50px")
+        h2 Сверстанные страницы
+
+        +sitemap()
+ 

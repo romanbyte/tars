@@ -1,0 +1,25 @@
+mixin select-simple(obj)
+    - var selectattrs = (typeof obj.selectattrs === 'undefined') ? {} : obj.selectattrs
+    - var options = (typeof obj.options === 'undefined') ? {} : obj.options
+    select.form-control(id="#{obj.id}")&attributes(selectattrs)
+        each item in options
+            option #{item.text}
+
+//- Select
+mixin select(obj)
+    - var groupattrs = (typeof obj.groupattrs === 'undefined') ? {} : obj.groupattrs
+    .form-group&attributes(groupattrs)
+        +lable-simple(obj)
+        +select-simple(obj)
+
+
+//-Custom select
+mixin custom-select(obj)
+    - var selectattrs = (typeof obj.selectattrs === 'undefined') ? {} : obj.selectattrs
+    - var groupattrs = (typeof obj.groupattrs === 'undefined') ? {} : obj.groupattrs
+    - var options = (typeof obj.options === 'undefined') ? {} : obj.options
+    .form-group&attributes(groupattrs)
+        label(for="#{obj.id}") #{obj.label}
+        select.custom-select(id="#{obj.id}")&attributes(selectattrs)
+            each item, index in options
+                option #{item.value}

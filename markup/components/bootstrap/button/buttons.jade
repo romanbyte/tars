@@ -1,0 +1,123 @@
+include demo-buttons
+
+//- button mixins
+//- anchor buttons
+mixin a-btn(url,style, outline)
+    - var type = (typeof style === 'undefined') ? "default" : style
+    - var outline = (typeof outline === 'undefined') ? "" : "outline-"
+    - var className = "btn-"+outline+type
+    - var url = (typeof url === 'undefined') ? "#" : url
+    a.btn(class=className, href="#{url}",role="button")&attributes(attributes)
+        block
+
+mixin a-btn-primary(url, outline)
+    +a-btn(url,"primary", outline)&attributes(attributes)
+        block
+
+mixin a-btn-info(url, outline)
+    +a-btn(url,"info", outline)&attributes(attributes)
+        block
+
+mixin a-btn-warning(url, outline)
+    +a-btn(url,"warning", outline)&attributes(attributes)
+        block
+
+mixin a-btn-danger(url, outline)
+    +a-btn(url,"danger", outline)&attributes(attributes)
+        block
+
+mixin a-btn-success(url, outline)
+    +a-btn(url,"success", outline)&attributes(attributes)
+        block
+
+mixin a-btn-secondary(url, outline)
+    +a-btn(url,"secondary", outline)&attributes(attributes)
+        block
+
+mixin a-btn-link(url, outline)
+    +a-btn(url,"btn-link", outline)&attributes(attributes)
+        block
+
+//- buttons
+mixin btn(style, outline)
+    - var type = (typeof style === 'undefined') ? "default" : style
+    - var outline = (typeof outline === 'undefined') ? "" : "outline-"
+    - var className = "btn-"+outline+type
+
+    button.btn(class=className ,type="button")&attributes(attributes)
+        block
+
+
+mixin btn-primary(outline)
+    +btn("primary", outline)&attributes(attributes)
+        block
+
+mixin btn-secondary(outline)
+    +btn("secondary", outline)&attributes(attributes)
+        block
+
+mixin btn-info(outline)
+    +btn("info", outline)&attributes(attributes)
+        block
+
+mixin btn-warning(outline)
+    +btn("warning", outline)&attributes(attributes)
+        block
+
+mixin btn-danger(outline)
+    +btn("danger", outline)&attributes(attributes)
+        block
+
+mixin btn-success(outline)
+    +btn("success", outline)&attributes(attributes)
+        block
+
+mixin btn-link(outline)
+    +btn("link", outline)&attributes(attributes)
+        block
+
+
+
+//- input buttons
+mixin input-btn(caption,style)
+    - var type = (typeof style === 'undefined') ? "default" : style
+    input.btn(class="btn-#{type}",type="button",value="#{caption}")
+
+mixin input-btn-primary(caption)
+    +input-btn(caption,"primary")
+
+mixin input-btn-info(caption)
+    +input-btn(caption,"info")
+
+mixin input-btn-warning(caption)
+    +input-btn(caption,"warning")
+
+mixin input-btn-danger(caption)
+    +input-btn(caption,"danger")
+
+mixin input-btn-success(caption)
+    +input-btn(caption,"success")
+
+//- submit buttons
+mixin submit(caption,style)
+    - var type = (typeof style === 'undefined') ? "default" : style
+    input.btn(class="btn-#{type}",type="submit",value="#{caption}")
+
+mixin submit-primary(caption)
+    +submit(caption,"primary")
+
+mixin submit-info(caption)
+    +submit(caption,"info")
+
+mixin submit-warning(caption)
+    +submit(caption,"warning")
+
+mixin submit-danger(caption)
+    +submit(caption,"danger")
+
+mixin submit-success(caption)
+    +submit(caption,"success")
+
+
+
+

@@ -1,0 +1,80 @@
+mixin demo-forms-basic
+    h3.mt-2 Sample form
+    form
+        +inputs(demoFormSample)
+        +selects(demoSelects)
+        +textareas(demoTextAreas)
+        +fileinput(demoFileInputs[1])
+
+        .form-group
+            +radios(demoRadios)
+
+        .form-group
+            +radios-inline(demoRadios2)
+
+        .form-group
+           +checkboxes(demoCheckboxes1)
+
+        .form-group
+            +checkboxes-inline(demoCheckboxes2)
+
+
+
+mixin demo-forms-inline
+    h3.mt-2 Inline form
+    form.form-inline
+        +inputs(demoInputsInline)
+        +checkbox(demoCheckbox3[1])
+        +submit('submit1', 'Sign in', 'submit1')(class="btn-primary")
+        +btn-link
+            |Cancel
+
+    form.mt-2.form-inline
+        +input-group(demoInputsGroup[1])
+
+    form.mt-2.form-inline
+        +input(demoInputsGroup[2])
+            small.text-muted(id="passwordHelpInline")
+                |&nbsp;Must be 8-20 characters long.
+
+mixin demo-forms-validation
+    h3.mt-2 Form validation
+    form
+        +inputs(demoFormValidations)
+        .form-group
+            +checkboxes(demoCheckboxes4)
+
+mixin demo-custom-forms
+    h3.mt-2 Form custom element
+    form
+        .form-group
+            +radios-custom(demoCustomRadios)
+        .form-group
+            +checkboxes-custom(demoCheckCustom)
+        .form-group
+            +custom-select(demoSelects[1])
+        .form-group
+            +custom-fileinput(demoFileInputs[2])
+
+mixin demo-form-grid
+    h3.mt-2 Form grid example
+    form
+        +input-rows(demoFormToCols)
+        .form-group.row
+            legend.col-form-legend.col-sm-2
+                |Radios
+            .col-sm-10
+                +radios(demoColumnsRadios)
+
+
+
+
+
+
+
+mixin demo-forms
+    +demo-forms-basic
+    +demo-forms-inline
+    +demo-forms-validation
+    +demo-custom-forms
+    +demo-form-grid

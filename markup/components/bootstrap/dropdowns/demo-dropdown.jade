@@ -1,0 +1,15 @@
+mixin demo-dropdown
+    .btn-group
+        +dropdown("dropdown", demoLinks, "dropDown1", "btn-secondary")
+    .btn-group
+        +dropdown("dropdown", demoLinks, "dropDown2", "btn-primary")
+    .btn-group
+        +dropdown("dropdown", demoLinks, "dropDown3", "btn-success")
+
+    h4.mt-1= 'Split button dropdowns'
+    .btn-group
+        +dropdown-split("dropdown", demoLinks, "dropDown1", "btn-secondary")
+    .btn-group
+        +dropdown-split("dropdown", demoLinks, "dropDown2", "btn-primary")
+    .btn-group
+        +dropdown-split("dropdown", demoLinks, "dropDown3", "btn-success")

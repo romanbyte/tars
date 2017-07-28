@@ -1,0 +1,59 @@
+//- accordion
+mixin accordion(id)
+    .accordion(id="#{id}", role="tablist", aria-multiselectable="true")
+        block
+
+//- accordion-item
+mixin accordion-item(obj)
+    .card
+        .card-header(role="tablist", id="heading#{obj.id}", aria-multiselectable="true")
+            h5.card-title
+                a(
+                    data-toggle="collapse",
+                    data-parent="#{obj.parent}",
+                    href="#collapse#{obj.id}",
+                    aria-expanded="true",
+                    aria-controls="collapse#{obj.id}"
+                    )
+                    = obj.title
+        unless obj.expanded
+            .card-collapse.collapse(
+                id="collapse#{obj.id}",
+                role="tabpanel",
+                aria-labelledby="#{obj.id}")
+                .card-block
+                    = obj.content
+        else
+            .card-collapse.collapse.in(
+                id="collapse#{id}",
+                role="tabpanel",
+                aria-labelledby="#{obj.id}")
+                .card-block
+                    = obj.content
+
+
+
+mixin collapse-block(id)
+    .collapse(id=id)
+        block
+
+mixin collapse-a-btn(id)
+    +a-btn-primary(href="##{id}",  data-toggle="collapse", aria-expanded="false" aria-controls="#{id}")
+        |Link with href
+
+mixin collapse-btn(id)
+    +a-btn-primary(href="##{id}",  data-toggle="collapse", aria-expanded="false" aria-controls="#{id}")
+        |Link with href
+
+mixin demo-collapse
+    p
+        +collapse-a-btn("collapseExpample")
+        +collapse-btn("collapseExpample")
+    +collapse-block("collapseExpample")
+        .card.card-block
+            |Collapsed block
+
+
+    +accordion("accordeon")
+        each item in demoAccodrion
+            +accordion-item(item)

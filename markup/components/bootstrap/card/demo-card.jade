@@ -1,0 +1,33 @@
+mixin demo-cards-list
+    each item, index in demoCards
+        +card(item.header, item.img, item.block, item.footer)
+
+mixin demo-cards
+    +demo-cards-list
+    +card(demoCards[2].header, demoCards[2].img, demoCards[2].block, demoCards[2].footer)(class="text-xs-center")
+
+    h4.mt-3 Groups
+    .card-group
+        +demo-cards-list
+
+    h4.mt-3 Decks
+    .card-deck
+        +demo-cards-list
+
+    h4.mt-3 Columns multicols
+    .card-columns
+        +demo-cards-list
+        +card(demoCards[2].header, demoCards[2].img, demoCards[2].block, demoCards[2].footer)(class="text-xs-center")
+        +demo-cards-list
+        +card(demoCards[2].header, demoCards[2].img, demoCards[2].block, demoCards[2].footer)(class=" text-xs-center")
+        +card(demoCards[3].header, demoCards[3].img, demoCards[3].block, demoCards[3].footer)(class=" text-xs-center card-inverse card-primary")
+
+    h4.mt-3 Columns grid
+    .container
+        .row
+            .col-sm-4
+                +card(demoCards[2].header, demoCards[2].img, demoCards[2].block, demoCards[2].footer)
+            .col-sm-4
+                +card(demoCards[3].header, demoCards[3].img, demoCards[3].block, demoCards[3].footer)
+            .col-sm-4
+                +card(demoCards[2].header, demoCards[2].img, demoCards[2].block, demoCards[2].footer)

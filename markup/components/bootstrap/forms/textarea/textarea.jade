@@ -1,0 +1,10 @@
+mixin simple-textarea(obj)
+    - var textareaattrs = (typeof obj.textareaattrs === 'undefined') ? {} : obj.textareaattrs
+    textarea.form-control(id="#{obj.id}" rows="3")&attributes(textareaattrs)
+
+//- Textarea
+mixin textarea(obj)
+    - var groupattrs = (typeof obj.groupattrs === 'undefined') ? {} : obj.groupattrs
+    .form-group&attributes(groupattrs)
+        +lable-simple(obj)
+        +simple-textarea(obj)

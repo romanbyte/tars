@@ -1,0 +1,28 @@
+//- cards
+include demo-card
+
+mixin card(header, img, blocks, footer)
+    .card&attributes(attributes)
+        if header
+            .card-header
+                |#{header}
+        if img
+            img.card-img.img-fluid(data-src="holder.js/100px75" alt="")
+
+        .card-block
+            each item, index in blocks
+                if item.title
+                    h4.card-title
+                        |#{item.title}
+                if item.text
+                    each itemText, index in item.text
+                        p.card-text!=itemText
+
+                if item.links
+                    each itemLink, index in item.links
+                        a.card-link(href="#")
+                            |#{itemLink}
+
+        if footer
+            .card-footer
+                |#{footer}

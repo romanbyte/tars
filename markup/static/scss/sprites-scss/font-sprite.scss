@@ -1,0 +1,319 @@
+@font-face {
+    font-family: "font-icons";
+    src: url('../fonts/icons/font-icons.eot');
+    src: url('../fonts/icons/font-icons.eot?#iefix') format('eot'),
+    url('../fonts/icons/font-icons.woff') format('woff'),
+    url('../fonts/icons/font-icons.ttf') format('truetype'),
+    url('../fonts/icons/font-icons.svg#font-icons') format('svg');
+}
+
+@mixin font-icon-styles {
+    font-family: "font-icons";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+    text-decoration: none;
+    text-transform: none;
+}
+
+%font-icon {
+    @include font-icon-styles;
+}
+
+@function font-icon-char($filename) {
+    $char: "";
+    
+    @if $filename == ajust {
+    $char: "\E001";
+}
+    @if $filename == arrow {
+    $char: "\E002";
+}
+    @if $filename == binokle {
+    $char: "\E003";
+}
+    @if $filename == blocknote {
+    $char: "\E004";
+}
+    @if $filename == btn-arrow {
+    $char: "\E005";
+}
+    @if $filename == calendar-picker {
+    $char: "\E006";
+}
+    @if $filename == calendar {
+    $char: "\E007";
+}
+    @if $filename == check {
+    $char: "\E008";
+}
+    @if $filename == checked {
+    $char: "\E009";
+}
+    @if $filename == clip {
+    $char: "\E00A";
+}
+    @if $filename == clipboard {
+    $char: "\E00B";
+}
+    @if $filename == consultant {
+    $char: "\E00C";
+}
+    @if $filename == data-search {
+    $char: "\E00D";
+}
+    @if $filename == delete {
+    $char: "\E00E";
+}
+    @if $filename == delivery {
+    $char: "\E00F";
+}
+    @if $filename == docs-del {
+    $char: "\E010";
+}
+    @if $filename == docs-done {
+    $char: "\E011";
+}
+    @if $filename == docs {
+    $char: "\E012";
+}
+    @if $filename == double {
+    $char: "\E013";
+}
+    @if $filename == ex {
+    $char: "\E014";
+}
+    @if $filename == form {
+    $char: "\E015";
+}
+    @if $filename == gear {
+    $char: "\E016";
+}
+    @if $filename == inbox {
+    $char: "\E017";
+}
+    @if $filename == lock {
+    $char: "\E018";
+}
+    @if $filename == mail {
+    $char: "\E019";
+}
+    @if $filename == man {
+    $char: "\E01A";
+}
+    @if $filename == map-point {
+    $char: "\E01B";
+}
+    @if $filename == medical {
+    $char: "\E01C";
+}
+    @if $filename == noc {
+    $char: "\E01D";
+}
+    @if $filename == ok {
+    $char: "\E01E";
+}
+    @if $filename == print {
+    $char: "\E01F";
+}
+    @if $filename == receipt {
+    $char: "\E020";
+}
+    @if $filename == redact {
+    $char: "\E021";
+}
+    @if $filename == scan {
+    $char: "\E022";
+}
+    @if $filename == search-user {
+    $char: "\E023";
+}
+    @if $filename == search {
+    $char: "\E024";
+}
+    @if $filename == stats {
+    $char: "\E025";
+}
+    @if $filename == stop {
+    $char: "\E026";
+}
+    @if $filename == time-go {
+    $char: "\E027";
+}
+    @if $filename == time {
+    $char: "\E028";
+}
+    @if $filename == user-search {
+    $char: "\E029";
+}
+    @if $filename == user {
+    $char: "\E02A";
+}
+    @if $filename == view-blocks {
+    $char: "\E02B";
+}
+    @if $filename == view-grid {
+    $char: "\E02C";
+}
+    @if $filename == view-list {
+    $char: "\E02D";
+}
+    @if $filename == wiki {
+    $char: "\E02E";
+}
+
+@return $char;
+}
+
+@mixin font-icon($filename, $insert: before, $extend: true) {
+    &:#{$insert} {
+        @if $extend {
+            @extend %font-icon;
+        } @else {
+            @include font-icon-styles;
+        }
+    content: font-icon-char($filename);
+    }
+}
+
+.font-icon-ajust {
+    @include font-icon(ajust);
+}
+.font-icon-arrow {
+    @include font-icon(arrow);
+}
+.font-icon-binokle {
+    @include font-icon(binokle);
+}
+.font-icon-blocknote {
+    @include font-icon(blocknote);
+}
+.font-icon-btn-arrow {
+    @include font-icon(btn-arrow);
+}
+.font-icon-calendar-picker {
+    @include font-icon(calendar-picker);
+}
+.font-icon-calendar {
+    @include font-icon(calendar);
+}
+.font-icon-check {
+    @include font-icon(check);
+}
+.font-icon-checked {
+    @include font-icon(checked);
+}
+.font-icon-clip {
+    @include font-icon(clip);
+}
+.font-icon-clipboard {
+    @include font-icon(clipboard);
+}
+.font-icon-consultant {
+    @include font-icon(consultant);
+}
+.font-icon-data-search {
+    @include font-icon(data-search);
+}
+.font-icon-delete {
+    @include font-icon(delete);
+}
+.font-icon-delivery {
+    @include font-icon(delivery);
+}
+.font-icon-docs-del {
+    @include font-icon(docs-del);
+}
+.font-icon-docs-done {
+    @include font-icon(docs-done);
+}
+.font-icon-docs {
+    @include font-icon(docs);
+}
+.font-icon-double {
+    @include font-icon(double);
+}
+.font-icon-ex {
+    @include font-icon(ex);
+}
+.font-icon-form {
+    @include font-icon(form);
+}
+.font-icon-gear {
+    @include font-icon(gear);
+}
+.font-icon-inbox {
+    @include font-icon(inbox);
+}
+.font-icon-lock {
+    @include font-icon(lock);
+}
+.font-icon-mail {
+    @include font-icon(mail);
+}
+.font-icon-man {
+    @include font-icon(man);
+}
+.font-icon-map-point {
+    @include font-icon(map-point);
+}
+.font-icon-medical {
+    @include font-icon(medical);
+}
+.font-icon-noc {
+    @include font-icon(noc);
+}
+.font-icon-ok {
+    @include font-icon(ok);
+}
+.font-icon-print {
+    @include font-icon(print);
+}
+.font-icon-receipt {
+    @include font-icon(receipt);
+}
+.font-icon-redact {
+    @include font-icon(redact);
+}
+.font-icon-scan {
+    @include font-icon(scan);
+}
+.font-icon-search-user {
+    @include font-icon(search-user);
+}
+.font-icon-search {
+    @include font-icon(search);
+}
+.font-icon-stats {
+    @include font-icon(stats);
+}
+.font-icon-stop {
+    @include font-icon(stop);
+}
+.font-icon-time-go {
+    @include font-icon(time-go);
+}
+.font-icon-time {
+    @include font-icon(time);
+}
+.font-icon-user-search {
+    @include font-icon(user-search);
+}
+.font-icon-user {
+    @include font-icon(user);
+}
+.font-icon-view-blocks {
+    @include font-icon(view-blocks);
+}
+.font-icon-view-grid {
+    @include font-icon(view-grid);
+}
+.font-icon-view-list {
+    @include font-icon(view-list);
+}
+.font-icon-wiki {
+    @include font-icon(wiki);
+}

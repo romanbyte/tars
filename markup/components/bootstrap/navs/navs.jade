@@ -1,0 +1,29 @@
+//- Nav mixins
+mixin nav(type,items,active)
+    ul.nav(class="#{type}")&attributes(attributes)
+        each item,index in items
+            - var className = (typeof active === 'undefined') ? "" : "active"
+            li.nav-item(role="presentation")
+                a.nav-link(class=className href="#{item.href}")= item.name
+
+
+
+mixin nav-tabs(items,active)
+    +nav("nav-tabs",items,active)
+
+
+
+mixin nav-tabs-justified(items,active)
+    +nav("nav-tabs nav-justified",items,active)
+
+
+mixin nav-pills(items,active)
+    +nav("nav-pills",items,active)
+
+
+mixin nav-pills-justified(items,active)
+    +nav("nav-pills nav-justified",items,active)
+
+
+mixin nav-stacked(items,active)
+    +nav("nav-pills nav-stacked",items,active)

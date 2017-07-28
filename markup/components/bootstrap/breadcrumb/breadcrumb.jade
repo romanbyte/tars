@@ -1,0 +1,15 @@
+//- Breadcrumb mixins
+
+mixin breadcrumb(items)
+    ol.breadcrumb(class="#{type}")
+        each item, index in items
+            if item.last
+                li.breadcrumb-item= item.name
+
+            else
+                li.breadcrumb-item
+                    a(href="#{item.href}")= item.name
+                |#{items.length}
+
+mixin demo-breadcrumb()
+    +breadcrumb(demoLinks)

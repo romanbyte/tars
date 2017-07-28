@@ -1,0 +1,27 @@
+//- File upload
+mixin fileinput(obj)
+    .form-group
+        - var groupattrs = (typeof obj.groupattrs === 'undefined') ? {} : obj.groupattrs
+        label(for="#{obj.id}") #{obj.label}
+        input.form-control-file(
+            type="file",
+            id="#{obj.id}",
+            name="name-#{obj.id}",
+            aria-describedby="fileHelp"
+            )&attributes(groupattrs)
+        block
+
+
+//-Custom file upload
+mixin custom-fileinput(obj)
+    .form-group
+        - var groupattrs = (typeof obj.groupattrs === 'undefined') ? {} : obj.groupattrs
+        label.custom-file
+            input.custom-file-input(
+                type="file",
+                id="#{obj.id}",
+                name="name-#{id}",
+                aria-describedby="fileHelp"
+                )&attributes(groupattrs)
+            span.custom-file-control
+        block
